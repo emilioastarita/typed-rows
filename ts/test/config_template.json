@@ -1,0 +1,8 @@
+{
+  "dbTest": {
+    "user": "root",
+    "password": "",
+    "database": "typed_rows_test",
+    "host": "127.0.0.1"
+  }
+}

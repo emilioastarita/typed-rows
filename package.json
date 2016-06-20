@@ -1,0 +1,35 @@
+{
+  "name": "typed-rows",
+  "version": "0.0.1",
+  "description": "Extract metadata from mysql tables to produce typescript interfaces for rows results.",
+  "main": "js/index.js",
+  "scripts": {
+    "pretest": "tsc -p ts/",
+    "test": "mocha js/test"
+  },
+  "keywords": [
+    "metadata",
+    "mysql",
+    "interfaces",
+    "typescript",
+    "types",
+    "schema",
+    "db"
+  ],
+  "author": "Emilio Astarita",
+  "license": "ISC",
+  "bin": {
+    "typed-rows": "js/index.js"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "commander": "^2.9.0",
+    "lodash": "^4.13.1",
+    "mysql": "^2.11.1",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
