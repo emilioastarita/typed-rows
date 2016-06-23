@@ -7,10 +7,11 @@ const program = require('commander');
 
 program
     .version(pkg.version)
-    .option('-u, --user [user]', 'Mysql user', 'root')
-    .option('-p, --password [password]', 'Mysql password')
-    .option('-d, --database <database>', 'Database name')
-    .option('-h, --host [host]', 'Database host', '127.0.0.1')
+    .option('-u, --user [user]', 'mysql user - Default root', 'root')
+    .option('-p, --password [password]', 'mysql password')
+    .option('-d, --database <database>', 'database name')
+    .option('-h, --host [host]', 'database host - Default 127.0.0.1', '127.0.0.1')
+    .option('-o, --outfile <outfile>', 'Out file - Default ./TypedRows.ts', './TypedRows.ts')
     .parse(process.argv);
 
 
@@ -18,11 +19,18 @@ const options = {
     host: program.host,
     user: program.user,
     password: program.password,
-    database: program.database
+    database: program.database,
+    outfile: program.outfile
 };
 
 if (options.database === undefined) {
     console.error('No database given! use --database=dbname');
+    process.exit(1);
+}
+
+
+if (options.outfile === undefined) {
+    console.error('No output file given! use --outfile=file');
     process.exit(1);
 }
 

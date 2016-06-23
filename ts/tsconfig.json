@@ -17,6 +17,7 @@
     "./typings/index.d.ts",
     "./test/FieldConverterTest.ts",
     "./test/InformationTest.ts",
+    "./TypedRows.ts",
     "./index.ts"
   ]
 }

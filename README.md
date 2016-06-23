@@ -27,7 +27,7 @@ You can manually provide the type information for the type of result that you ar
 That works but if you have a big database with a lot of tables and columns could be very tedious to write (and maintain) all these interfaces. So you can use `typed-rows` to automatically generate a `TyepedRows.ts` file with all the interfaces generated automatically from your database.    
 
 ```
-    $ typed-rows --database=phpmyadmin --user=root > TypedRows.ts
+    $ typed-rows --database=phpmyadmin --user=root --outfile=TypedRows.ts
     Password:
     $ cat TypedRows.ts
     export interface IPmaTracking { 
@@ -117,18 +117,17 @@ npm installation:
 The installation should give you a global `typed-rows` command, which you can use directly to extract type information from a mysql database and write the interfaces to the standard output.
 
 ```
-  $ typed-rows --help
-
   Usage: typed-rows [options]
 
   Options:
 
     -h, --help                 output usage information
     -V, --version              output the version number
-    -u, --user [user]          Mysql user
-    -p, --password [password]  Mysql password
-    -d, --database <database>  Database name
-    -h, --host [host]          Database host
+    -u, --user [user]          Mysql user - Default root
+    -p, --password [password]  mysql password
+    -d, --database <database>  database name
+    -h, --host [host]          database host - Default 127.0.0.1
+    -o, --outfile <outfile>    Out file - Default ./TypedRows.ts
 ```
 
 ### Tests
