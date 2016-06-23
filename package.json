@@ -1,6 +1,6 @@
 {
   "name": "typed-rows",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Extract metadata from mysql tables to produce typescript interfaces for rows results.",
   "main": "js/index.js",
   "scripts": {
@@ -36,5 +36,4 @@
     "type": "git",
     "url": "git@github.com:emilioastarita/typed-rows.git"
   }
-
 }
