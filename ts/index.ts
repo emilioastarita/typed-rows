@@ -11,6 +11,7 @@ program
     .option('-p, --password [password]', 'mysql password')
     .option('-d, --database <database>', 'database name')
     .option('-h, --host [host]', 'database host - Default 127.0.0.1', '127.0.0.1')
+    .option('-p, --port [port]', 'database port - Default 3306', '3306')
     .option('-o, --outfile <outfile>', 'Out file - Default ./TypedRows.ts', './TypedRows.ts')
     .parse(process.argv);
 
@@ -20,7 +21,8 @@ const options = {
     user: program.user,
     password: program.password,
     database: program.database,
-    outfile: program.outfile
+    outfile: program.outfile,
+    port : program.port
 };
 
 if (options.database === undefined) {

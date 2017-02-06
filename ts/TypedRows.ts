@@ -11,6 +11,7 @@ export interface TypedRowsOptions {
     password:string;
     database:string;
     host:string;
+    port:string;
 }
 
 export class TypedRows {

@@ -3,6 +3,7 @@ export interface TypedRowsOptions {
     password: string;
     database: string;
     host: string;
+    port: string;
 }
 export declare class TypedRows {
     protected options: TypedRowsOptions;

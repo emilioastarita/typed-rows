@@ -127,6 +127,7 @@ The installation should give you a global `typed-rows` command, which you can us
     -p, --password [password]  mysql password
     -d, --database <database>  database name
     -h, --host [host]          database host - Default 127.0.0.1
+    -p, --port [port]          database port - Default 3306
     -o, --outfile <outfile>    Out file - Default ./TypedRows.ts
 ```
 
