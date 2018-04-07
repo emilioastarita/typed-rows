@@ -1,7 +1,7 @@
 import {FieldDescription} from "../Information";
 import {Generic, Datetime, Number, String, Enum} from '../FieldConverter';
 import * as chai from 'chai';
-let assert = chai.assert;
+const assert = chai.assert;
 
 describe('FieldConverter', () => {
     let subject : Generic;

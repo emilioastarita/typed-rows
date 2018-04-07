@@ -7,14 +7,14 @@ const assert = chai.assert;
 
 describe('InformationTest', () => {
     let subject:Information;
-    const options = require('../../ts/test/config.json');
+    const options = require('./../../config.json');
     let con;
     let helper:TestHelper;
 
     beforeEach((done) => {
         con = mysql.createConnection(options.dbTest);
         con.connect((err) => {
-            if (err) throw new err;
+            if (err) throw err;
             helper = new TestHelper(con);
             done();
         });
