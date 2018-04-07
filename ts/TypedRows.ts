@@ -3,7 +3,6 @@ import {TableConverter} from './TableConverter';
 import fs = require('fs');
 import * as async from "async";
 import mysql = require("mysql");
-import {WriteStream} from "fs";
 import {IConnection} from "mysql";
 
 export interface TypedRowsOptions {
@@ -36,7 +35,7 @@ export class TypedRows {
 
     getHeaderFile() {
         let header = [];
-        header.push('// Auto-generated file by Typed Rows package.')
+        header.push('// Auto-generated file by Typed Rows package.');
         header.push('// Generation: ' + this.generationTime());
         header.push('');
         header.push('');
@@ -83,7 +82,12 @@ export class TypedRows {
                     });
                 }, (err, outputs) => {
                     const header = this.getHeaderFile();
-                    fs.write(fd, header + outputs.join("\n\n") + "\n");
+                    fs.write(fd, header + outputs.join("\n\n") + "\n", (err) => {
+                        if (err) {
+                            console.error(err.message);
+                            process.exit(1);
+                        }
+                    });
                     connection.end();
                 });
             });

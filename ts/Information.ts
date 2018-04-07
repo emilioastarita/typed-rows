@@ -1,4 +1,4 @@
-/// <reference path="./typings/index.d.ts" />
+
 import {IConnection} from "mysql";
 
 export interface FieldDescription {

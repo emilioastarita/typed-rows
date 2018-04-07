@@ -1,5 +1,3 @@
-/// <reference path="../typings/globals/mocha/index.d.ts" />
-/// <reference path="../typings/globals/chai/index.d.ts" />
 import {FieldDescription} from "../Information";
 import {Generic, Datetime, Number, String, Enum} from '../FieldConverter';
 import * as chai from 'chai';

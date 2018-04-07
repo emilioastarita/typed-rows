@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-/// <reference path="./typings/index.d.ts" />
+
 import {TypedRows} from './TypedRows';
 const prompted = require('prompt');
 const pkg = require('../package.json');
@@ -42,7 +42,7 @@ if (options.outfile === undefined) {
 const run = (options) => {
     let app = new TypedRows(options);
     app.run();
-}
+};
 
 
 if (options.password === undefined) {

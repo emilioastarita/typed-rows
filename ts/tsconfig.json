@@ -1,23 +1,17 @@
 {
-  "version": "1.8.10",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "noImplicitAny": false,
-    "removeComments": true,
-    "declaration": true,
-    "outDir": "../js"
+    "outDir": "../dist",
+    "sourceMap": true
   },
   "filesGlob": [
     "./*.ts",
     "./test/*.ts",
     "./**/*.ts"
   ],
-  "files": [
-    "./typings/index.d.ts",
-    "./test/FieldConverterTest.ts",
-    "./test/InformationTest.ts",
-    "./TypedRows.ts",
-    "./index.ts"
+  "exclude": [
+    "node_modules"
   ]
 }

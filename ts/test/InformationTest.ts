@@ -1,7 +1,4 @@
-/// <reference path="../typings/globals/mocha/index.d.ts" />
-/// <reference path="../typings/globals/chai/index.d.ts" />
 import {Information} from "../Information";
-import * as async from "async";
 import * as mysql from "mysql";
 import * as chai from 'chai';
 import {TestHelper} from "./TestHelper";

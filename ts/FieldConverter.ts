@@ -1,5 +1,5 @@
 import {FieldDescription} from "./Information";
-let _ = require('lodash');
+
 
 export class Generic {
     protected definition:FieldDescription;
@@ -12,10 +12,8 @@ export class Generic {
         if (this.definition.Null === 'YES') {
             return true;
         }
-        if (this.definition.Extra === 'auto_increment') {
-            return true;
-        }
-        return false;
+        return this.definition.Extra === 'auto_increment';
+
     }
 
     output():string {
