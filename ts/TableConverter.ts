@@ -5,16 +5,21 @@ import * as _ from "lodash";
 import {Generic} from './FieldConverter';
 
 
-export class TableConversor {
+export interface TableConverterOptions {
+  interfacePrefix:string;
+}
+
+export class TableConverter {
 
     protected def:FieldDescription[];
+    protected options:TableConverterOptions;
     protected name:string;
     protected indentValue = 4;
 
-    constructor(name:string, def:FieldDescription[]) {
+    constructor(name:string, def:FieldDescription[], options: TableConverterOptions) {
         this.name = name;
         this.def = def;
-
+        this.options = options;
     }
 
     output() {
@@ -27,7 +32,7 @@ export class TableConversor {
 
     protected getInterfaceName():string {
         let camel = _.camelCase(this.name);
-        return 'I' + camel.charAt(0).toUpperCase() + camel.slice(1);
+        return this.options.interfacePrefix + camel.charAt(0).toUpperCase() + camel.slice(1);
     }
 
     protected getFieldsOutput():string {

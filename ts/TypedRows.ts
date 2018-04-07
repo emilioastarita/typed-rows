@@ -1,5 +1,5 @@
 import {Information} from './Information';
-import {TableConversor} from './TableConverter';
+import {TableConverter} from './TableConverter';
 import fs = require('fs');
 import * as async from "async";
 import mysql = require("mysql");
@@ -12,6 +12,7 @@ export interface TypedRowsOptions {
     database:string;
     host:string;
     port:string;
+    prefix:string;
 }
 
 export class TypedRows {
@@ -73,7 +74,11 @@ export class TypedRows {
             info.getTables((err, tables:string[]) => {
                 async.map(tables, (table:string, callback) => {
                     info.describe(table, (err, fields) => {
-                        const conversor = new TableConversor(table, fields);
+                        const conversor = new TableConverter(
+                          table,
+                          fields,
+                          {interfacePrefix: this.options.prefix}
+                        );
                         callback(err, conversor.output());
                     });
                 }, (err, outputs) => {

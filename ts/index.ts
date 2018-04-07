@@ -12,6 +12,7 @@ program
     .option('-d, --database <database>', 'database name')
     .option('-h, --host [host]', 'database host - Default 127.0.0.1', '127.0.0.1')
     .option('-p, --port [port]', 'database port - Default 3306', '3306')
+    .option('-px, --prefix [prefix]', 'interface prefix - Default I', 'I')
     .option('-o, --outfile <outfile>', 'Out file - Default ./TypedRows.ts', './TypedRows.ts')
     .parse(process.argv);
 
@@ -22,7 +23,8 @@ const options = {
     password: program.password,
     database: program.database,
     outfile: program.outfile,
-    port : program.port
+    port : program.port,
+    prefix : program.prefix
 };
 
 if (options.database === undefined) {
