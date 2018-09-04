@@ -45,8 +45,8 @@ export class Generic {
             return new String(field);
         }
         if (/tinyint\(1\)/ig.exec(type) !== null) {
-	        return new Boolean(field);
-	    }
+            return new Boolean(field);
+        }
         if (/int|integer|smalint|tinyint|mediumint|decimal|numeric|double|bigint|float|decimal\s*\(\s*([0-9]+)\s*\)/ig.exec(type) !== null) {
             return new Number(field);
         }
