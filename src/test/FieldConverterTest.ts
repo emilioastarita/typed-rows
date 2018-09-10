@@ -1,5 +1,5 @@
 import {FieldDescription} from "../Information";
-import {Generic, Datetime, Number, String, Enum} from '../FieldConverter';
+import {Generic, Datetime, Number, String, Enum, Boolean} from '../FieldConverter';
 import * as chai from 'chai';
 const assert = chai.assert;
 
@@ -48,6 +48,11 @@ describe('FieldConverter', () => {
             fieldDescription.Type = 'datetime';
             subject = Generic.factory(fieldDescription);
             assert.instanceOf(subject, Datetime);
+        });
+        it('should create a boolean type because tinyint(1)', () => {
+            fieldDescription.Type = 'tinyint(1)';
+            subject = Generic.factory(fieldDescription);
+            assert.instanceOf(subject, Boolean);
         });
         it('should create a date type number because int(11)', () => {
             fieldDescription.Type = 'int(11)';

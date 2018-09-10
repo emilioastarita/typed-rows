@@ -44,6 +44,9 @@ export class Generic {
         if (/varchar\s*\(\s*([0-9]+)\s*\)/ig.exec(type) !== null) {
             return new String(field);
         }
+        if (/tinyint\(1\)/ig.exec(type) !== null) {
+            return new Boolean(field);
+        }
         if (/int|integer|smalint|tinyint|mediumint|decimal|numeric|double|bigint|float|decimal\s*\(\s*([0-9]+)\s*\)/ig.exec(type) !== null) {
             return new Number(field);
         }
@@ -80,5 +83,11 @@ export class Enum extends Generic {
     getType():string {
         let [, values] = /enum\s*\(\s*(.+)\s*\)/ig.exec(this.definition.Type);
         return values.split(',').join(' | ');
+    }
+}
+
+export class Boolean extends Generic {
+    getType():string {
+        return 'boolean';
     }
 }
